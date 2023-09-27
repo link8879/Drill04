@@ -26,6 +26,8 @@ def handle_events():
                 dir_x -= 1
             elif event.key == SDLK_UP:
                 dir_y += 1
+            elif event.key == SDLK_DOWN:
+                dir_y -= 1
             elif event.key == SDLK_ESCAPE:
                 running = False
         elif event.type == SDL_KEYUP:
@@ -35,6 +37,8 @@ def handle_events():
                 dir_x += 1
             elif event.key == SDLK_UP:
                 dir_y -= 1
+            elif event.key == SDLK_DOWN:
+                dir_y += 1
 
 
 
@@ -53,6 +57,11 @@ def draw():
         character.clip_draw(frame * 80, 90, 80, 80, x, y)
         frame = (frame + 1) % 10
         y += dir_y * 10
+    elif dir_x == 0 and dir_y == -1:
+        character.clip_draw(frame * 80, 260, 80, 80, x, y)
+        frame = (frame + 1) % 10
+        y += dir_y * 10
+
     elif dir_x == 0 and dir_y == 0:
         character.clip_draw(frame * 80, 0, 80, 80, x, y)
         frame = (frame + 1) % 3
