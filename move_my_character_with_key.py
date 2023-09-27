@@ -46,25 +46,27 @@ def draw():
     global frame, x, y
 
     if dir_x == 1 and dir_y == 0:
-        character.clip_draw(frame * 80, 0, 80, 80, x, y)
+        character.clip_draw(frame * 80, 0, 80, 80, x, y, 150, 150)
         frame = (frame + 1) % 10
-        x += dir_x * 10
+        if x + 80 <= 1280:
+            x += dir_x * 10
     elif dir_x == -1 and dir_y == 0:
-        character.clip_draw(frame * 80, 180, 80, 80, x, y)
+        character.clip_draw(frame * 80, 180, 80, 80, x, y, 150, 150)
         frame = (frame + 1) % 10
-        x += dir_x * 10
+        if x - 80 >= 0:
+            x += dir_x * 10
     elif dir_x == 0 and dir_y == 1:
-        character.clip_draw(frame * 80, 90, 80, 80, x, y)
+        character.clip_draw(frame * 80, 90, 80, 80, x, y, 150, 150)
         frame = (frame + 1) % 10
         y += dir_y * 10
     elif dir_x == 0 and dir_y == -1:
-        character.clip_draw(frame * 80, 260, 80, 80, x, y)
+        character.clip_draw(frame * 80, 260, 80, 80, x, y, 150, 150)
         frame = (frame + 1) % 10
         y += dir_y * 10
 
     elif dir_x == 0 and dir_y == 0:
-        character.clip_draw(frame * 80, 0, 80, 80, x, y)
-        frame = (frame + 1) % 3
+        character.clip_draw(frame * 80, 0, 80, 80, x, y, 150, 150)
+        frame = (frame + 1) % 10
 
 while running:
     clear_canvas()
