@@ -58,11 +58,13 @@ def draw():
     elif dir_x == 0 and dir_y == 1:
         character.clip_draw(frame * 80, 90, 80, 80, x, y, 150, 150)
         frame = (frame + 1) % 10
-        y += dir_y * 10
+        if y + 80 <= 1024:
+            y += dir_y * 10
     elif dir_x == 0 and dir_y == -1:
         character.clip_draw(frame * 80, 260, 80, 80, x, y, 150, 150)
         frame = (frame + 1) % 10
-        y += dir_y * 10
+        if y - 80 >= 0:
+            y += dir_y * 10
 
     elif dir_x == 0 and dir_y == 0:
         character.clip_draw(frame * 80, 0, 80, 80, x, y, 150, 150)
